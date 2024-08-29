@@ -7,8 +7,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [titulo, setTitulo] = useState("Top Mangás");
   const [searchTimeout, setSearchTimeout] = useState(null);
-  const [cache, setCache] = useState({}); // Cache para armazenar resultados de busca
-
+  const [cache, setCache] = useState({}); 
   useEffect(() => {
     const fetchMangas = async () => {
       try {
@@ -30,12 +29,12 @@ function App() {
   const executeSearch = useCallback(async () => {
     try {
       setLoading(true);
-      await delay(9999999); // Adiciona um pequeno delay para evitar muitas requisições seguidas
+      await delay(1000);
 
       const A = document.querySelector('.input-field').value;
-      if (!A) return; // Evita busca se o campo de entrada estiver vazio
+      if (!A) return; 
 
-      if (cache[A]) { // Verifica se a busca já está no cache
+      if (cache[A]) { 
         setMangas(cache[A]);
         setTitulo(`Search Query: ${A}`);
         return;
@@ -46,7 +45,7 @@ function App() {
       if (response.data.data.length >= 1) {
         setMangas(response.data.data);
         setTitulo(`Search Query: ${A}`);
-        setCache(prevCache => ({ ...prevCache, [A]: response.data.data })); // Armazena no cache
+        setCache(prevCache => ({ ...prevCache, [A]: response.data.data }));
       } else {
         setTitulo("Not Found");
         setMangas([]);
@@ -64,7 +63,7 @@ function App() {
     if (searchTimeout) {
       clearTimeout(searchTimeout);
     }
-    setSearchTimeout(setTimeout(executeSearch, 1000)); // Debouncing para limitar requisições rápidas
+    setSearchTimeout(setTimeout(executeSearch, 1000));
   };
 
   useEffect(() => {
