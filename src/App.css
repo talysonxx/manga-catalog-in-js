@@ -1,0 +1,87 @@
+/* src/App.css */
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+.manga-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 41px;
+  justify-content: center;
+}
+
+.manga-box {
+  color: aliceblue;
+  width: 300px;
+  height: 450px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(0deg, #1f1f1fd1, #5b5b5b);
+  text-align: center;
+}
+
+.manga-box img {
+  transition: 500ms ease-out all;
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.manga-box img:hover {
+  height: 450px;
+  transition: 250ms ease-out all;
+  filter: brightness(0.5) blur(1px);
+}
+
+.manga-box h2 {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 10px;
+  font-size: 16px;
+}
+
+.manga-box p {
+  margin: 0 10px 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.loading-icon {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+}
+
+.spinner {
+  animation: rotate 2s linear infinite;
+  width: 100%;
+  height: 100%;
+}
+
+.path {
+  stroke: #484848; /* Cor do stroke */
+  stroke-linecap: round;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
