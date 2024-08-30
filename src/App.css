@@ -7,60 +7,59 @@
 .manga-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 41px;
+  gap: 40px;
   justify-content: center;
 }
 
 .manga-box {
-  color: aliceblue;
+  color: #d5e8cf;
   width: 300px;
   height: 450px;
   border-radius: 20px;
   overflow: hidden;
-  background: linear-gradient(0deg, #1f1f1fd1, #5b5b5b);
+  background: #3b4b39;
   text-align: center;
 }
 
-.manga-box img {
-  transition: 500ms ease-out all;
-  width: 300px;
+.cover {
+  width: 100%;
   height: 400px;
   object-fit: cover;
+  transition: filter 250ms cubic-bezier(0, 0.7, 1, 1), transform 250ms ease-out;
 }
 
-.manga-box img:hover {
-  height: 450px;
-  transition: 250ms ease-out all;
-  filter: brightness(0.5) blur(1px);
+.manga-box:hover {
+  outline: 3px solid #bcebf1;
 }
 
-.manga-box h2 {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  margin: 10px;
-  font-size: 16px;
+.manga-box:hover .cover {
+  filter: saturate(0.5) brightness(0.5) blur(2px);
+  transform: scale(1.05) translateY(-10px);
 }
 
 .manga-box p {
-  margin: 0 10px 10px;
-  font-size: 14px;
-  color: #555;
+  font-weight: 100;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 16px;
+  font-size: 19px;
 }
 
+
 .loading-icon {
-  display: inline-block;
   width: 50px;
   height: 50px;
 }
 
 .spinner {
-  animation: rotate 2s linear infinite;
   width: 100%;
   height: 100%;
+  animation: rotate 2s linear infinite;
 }
 
 .path {
-  stroke: #484848; 
+  stroke: rgb(186 240 182); 
   stroke-linecap: round;
   animation: dash 1.5s ease-in-out infinite;
 }
@@ -84,4 +83,70 @@
     stroke-dasharray: 90, 150;
     stroke-dashoffset: -124;
   }
+}
+
+.tooltip {
+  padding-top: 10px;
+  opacity: 0;
+  font-weight: 800;
+  font-size: 16px;
+  margin: 11px;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 500ms ease, padding-top 500ms ease;
+}
+
+.manga-box:hover .tooltip {
+  opacity: 1;
+  padding-top: 0;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #101010;
+  color: #aeaeae;
+  text-align: center;
+  padding: 5px;
+  border-radius: 20px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.tip {
+  padding-top: 10px;
+  opacity: 0;
+  margin: 11px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #101010 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.features {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tips {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
 }
