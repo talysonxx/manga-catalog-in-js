@@ -1,3 +1,3 @@
 # Sobre
 
-Catálogo de mangás usando react e outras coisas...
+A Manga catalog using react and Jikan API
