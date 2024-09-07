@@ -23,15 +23,15 @@ let db, auth;
 
 // Configurações do firebase
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_APP_ID
+  apiKey: "AIzaSyCASGkjFTLBv64hoxcIZoMrhTEa62jvxMU",
+  authDomain: "catalog-ed359.firebaseapp.com",
+  projectId: "catalog-ed359",
+  storageBucket: "catalog-ed359.appspot.com",
+  messagingSenderId: "701733858632",
+  appId: "1:701733858632:web:2bc7f61cf9119382ee577d"
 };
 
-// Initialize Firebase
+// iniciar o Firebase
 const app = initializeApp(firebaseConfig);
 auth = getAuth();
 db = getFirestore();
