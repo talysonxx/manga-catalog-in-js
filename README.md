@@ -1,3 +1,3 @@
 # Sobre
 
-A Manga catalog using react and Jikan API
+A Manga catalog using react, Jikan API and firebase

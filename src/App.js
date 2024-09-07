@@ -12,19 +12,23 @@ function App() {
   const [titulo, setTitulo] = useState("");
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
+  
 
+
+  
   const fetchMangas = useCallback(async () => {
-    setLoading(true)
+    setLoading(true);
     try {
       const Popular = await axios.get("https://api.jikan.moe/v4/top/manga");
       setTitulo("Top Mangás");
       setMangas(Popular.data.data);
+      await sleep(2000);
     } catch (error) {
       setSnackbarMessage("Erro: " + error.response.statusText);
       setSnackbarOpen(true);
     } finally {
-      await sleep(1000);
       setLoading(false);
+
     }
   }, []);
 
@@ -40,7 +44,7 @@ function App() {
       if (A === "") {
         return;
       } else if (!/^$|^[a-zA-Z0-9].*$|^.*[a-zA-Z0-9]$/.test(A)) {
-        setSnackbarMessage("Invalid input! Must start with a letter or number!");
+        setSnackbarMessage("Entrada inválida! Deve começar com uma letra ou número!");
         setSnackbarOpen(true);
         return;
       } else {
@@ -52,7 +56,7 @@ function App() {
 
         if (response.data.data.length > 0) {
           setMangas(response.data.data);
-          setTitulo(`Search Query: ${A}`);
+          setTitulo(`${A}`);
         } else {
           setTitulo("Not Found :(");
           setMangas([]);
@@ -69,7 +73,7 @@ function App() {
   useEffect(() => {
     const inputField = document.querySelector(".input-field");
     const searchButton = document.querySelector(".search-button");
-    const homeButton = document.getElementById("buttons");
+    const homeButton = document.getElementById("home");
 
     const handleEnterKey = (event) => {
       if (!loading && event.key === "Enter") {
@@ -113,6 +117,7 @@ function App() {
     );
   }
 
+  
   return (
     <div className="App">
       <h1>{titulo}</h1>
