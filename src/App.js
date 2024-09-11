@@ -3,6 +3,9 @@ import React, { useCallback, useEffect, useState } from "react";
 import "./App.css";
 import MangaList from "./components/MangaList";
 import Alerta from "./components/SnackBar";
+import { setCSSVariables } from "./setCSS.js";
+
+
 
 const sleep = ms => new Promise(r => setTimeout(r, ms)); 
 
@@ -13,7 +16,9 @@ function App() {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   
-
+  useEffect(() => {
+    setCSSVariables();
+  }, []);
 
   
   const fetchMangas = useCallback(async () => {

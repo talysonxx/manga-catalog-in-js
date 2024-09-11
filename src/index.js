@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import Botoes from './components/IconButton';
 
+
+
 const buttons = ReactDOM.createRoot(document.getElementById('buttons'));
 buttons.render(
   <React.StrictMode>
@@ -16,6 +18,3 @@ root.render(
     <App />
   </React.StrictMode>
 );
-
-
-
